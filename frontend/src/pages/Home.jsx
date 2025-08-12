@@ -1,31 +1,32 @@
-// src/pages/Home.jsx
 import { Link } from "react-router-dom";
 
-export const Home = () => {
+export function Home() {
   return (
-    <div
-      className="h-screen w-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-500 to-indigo-700 text-white"
-    >
-      <h1 className="text-5xl font-bold mb-4 tracking-wide drop-shadow-lg">
-        SwiftPay
-      </h1>
-      <p className="text-lg mb-8 text-center max-w-md">
-        Fast, secure, and simple money transfers. Sign up today and start sending money in seconds.
-      </p>
-      <div className="flex space-x-4">
+    <div className="min-h-screen flex flex-col md:flex-row bg-gradient-to-r from-blue-100 to-white">
+      <div className="flex flex-col justify-center px-8 md:px-20 lg:px-32 w-full md:w-1/2 space-y-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-blue-900 leading-tight">
+          Fast, Secure & Easy <br /> Money Transfers
+        </h1>
+        <p className="text-blue-700 text-lg md:text-xl max-w-xl">
+          Send and receive money instantly, with top-level security and a smooth experience.
+          Join us today and make your transfers effortless.
+        </p>
         <Link
           to="/signup"
-          className="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold shadow-md hover:bg-gray-100 transition duration-200"
+          className="inline-block px-8 py-4 bg-blue-700 text-white rounded-xl shadow-lg hover:bg-blue-800 transition duration-300 font-semibold"
         >
-          Sign Up
+          Get Started
         </Link>
-        <Link
-          to="/signin"
-          className="px-6 py-3 bg-transparent border border-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-200"
-        >
-          Sign In
-        </Link>
+      </div>
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-blue-50">
+        <img
+          src="https://global-uploads.webflow.com/61932e147a6e406b3e9dce94/61b1af1b09ecf09b8f79d8c1_best-international-money-transfer-1024x628.jpeg"
+          alt="Money Transfer"
+          className="w-4/5 max-w-lg rounded-3xl shadow-2xl"
+        />
       </div>
     </div>
   );
-};
+}
+
+
