@@ -11,7 +11,7 @@ export const Users = () => {
  useEffect(() => {
   axios
     .get(
-      "http://localhost:3000/api/v1/user/bulk?filter=" + filter,
+      `${process.env.BackendUrl}/api/v1/user/bulk?filter=` + filter,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`

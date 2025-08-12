@@ -50,7 +50,7 @@ export const Signup = () => {
               label={"Sign up"}
               onClick={async () => {
                 const response = await axios.post(
-                  "http://localhost:3000/api/v1/user/signup",
+                  `${process.env.BackendUrl}/api/v1/user/signup`,
                   {
                     username,
                     firstName,

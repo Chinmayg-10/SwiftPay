@@ -16,7 +16,7 @@ export const SendMoney = () => {
     setLoading(true);
     try {
       await axios.post(
-        "http://localhost:3000/api/v1/account/transfer",
+        `${process.env.BackendUrl}/api/v1/account/transfer`,
         { amount, to: id },
         {
           headers: {
