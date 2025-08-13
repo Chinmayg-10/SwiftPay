@@ -61,7 +61,6 @@ export const Signup = () => {
                       password,
                     }
                   );
-                  console.log("Backend URL:", backendUrl);
                   localStorage.setItem("token", response.data.token);
                   localStorage.setItem(
                     "user",
