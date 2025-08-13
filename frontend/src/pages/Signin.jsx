@@ -21,7 +21,7 @@ const handleSignin = async () => {
   setError("");
 
   try {
-    const response = await axios.post(`${process.env.BackendUrl}/api/v1/user/signin`, {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signin`, {
       username: email,
       password,
     });

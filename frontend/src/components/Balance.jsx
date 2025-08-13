@@ -11,7 +11,7 @@ export const Balance = () => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `${process.env.BackendUrl}/api/v1/account/balance`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`,
           {
             headers: {
               Authorization: "Bearer " + token,
