@@ -5,13 +5,13 @@ import { Wallet } from "lucide-react";
 export const Balance = () => {
   const [balance, setBalance] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const fetchBalance = async () => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`,
+          `${backendUrl}/api/v1/account/balance`,
           {
             headers: {
               Authorization: "Bearer " + token,

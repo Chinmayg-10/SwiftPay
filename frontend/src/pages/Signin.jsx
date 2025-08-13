@@ -8,20 +8,19 @@ import { Heading } from "../components/Heading";
 import { InputBox } from "../components/InputBox";
 import { SubHeading } from "../components/SubHeading";
 import {jwtDecode} from "jwt-decode";
-
 export const Signin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const handleSignin = async () => {
   setLoading(true);
   setError("");
 
   try {
-    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signin`, {
+    const response = await axios.post(`${backendUrl}/api/v1/user/signin`, {
       username: email,
       password,
     });

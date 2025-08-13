@@ -15,6 +15,8 @@ export const Signup = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400">
       <div className="flex flex-col justify-center">
@@ -49,25 +51,30 @@ export const Signup = () => {
             <Button
               label={"Sign up"}
               onClick={async () => {
-                const response = await axios.post(
-                  `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signup`,
-                  {
-                    username,
-                    firstName,
-                    lastName,
-                    password,
-                  }
-                );
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem(
-                  "user",
-                  JSON.stringify({
-                    firstName,
-                    lastName,
-                    username,
-                  })
-                );
-                navigate("/dashboard");
+                try {
+                  const response = await axios.post(
+                    `${backendUrl}/api/v1/user/signup`,
+                    {
+                      username,
+                      firstName,
+                      lastName,
+                      password,
+                    }
+                  );
+                  console.log("Backend URL:", backendUrl);
+                  localStorage.setItem("token", response.data.token);
+                  localStorage.setItem(
+                    "user",
+                    JSON.stringify({
+                      firstName,
+                      lastName,
+                      username,
+                    })
+                  );
+                  navigate("/dashboard");
+                } catch (error) {
+                  console.error("Signup failed:", error);
+                }
               }}
             />
           </div>
@@ -82,3 +89,4 @@ export const Signup = () => {
     </div>
   );
 };
+

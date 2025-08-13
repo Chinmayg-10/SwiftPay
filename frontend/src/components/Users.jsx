@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 export const Users = () => {
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState("");
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
  useEffect(() => {
   axios
     .get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/bulk?filter=` + filter,
+      `${backendUrl}/api/v1/user/bulk?filter=` + filter,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`

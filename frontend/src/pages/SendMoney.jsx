@@ -9,14 +9,14 @@ export const SendMoney = () => {
   const name = searchParams.get("name");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const handleTransfer = async () => {
     if (!amount || amount <= 0) return;
 
     setLoading(true);
     try {
       await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/v1/account/transfer`,
+        `${backendUrl}/api/v1/account/transfer`,
         { amount, to: id },
         {
           headers: {
